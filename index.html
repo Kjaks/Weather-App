@@ -17,6 +17,23 @@
                 <br>
                 <button onclick="getWeather()">Consultar Tiempo Actual</button>
             </div>
+
+            <div id="weather-result-interval"></div>
+            <div id="intervalForm">
+                <input type="text" id="cityInterval" placeholder="Busca la ciudad">
+                <br>
+                <label for="days">Intervalo de dias:</label>
+                <select id="days">
+                    <option value="1">1 día</option>
+                    <option value="2">2 días</option>
+                    <option value="3">3 días</option>
+                    <option value="4">4 días</option>
+                    <option value="5">5 días</option>
+                </select>
+                <br>
+                <button onclick="getWeatherInterval()">Consultar Tiempo</button>
+            </div>
+            
         </div>
 
   </body>
