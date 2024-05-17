@@ -1,0 +1,62 @@
+body {
+    font-family: sans-serif;
+}
+
+.contenedor {
+    width: 75%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    background-color: #006d77;
+    color: white;
+    padding: 10px;
+}
+
+.ejercicio {
+    margin-bottom: 10px;
+    background-color: beige;
+    padding: 10px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+
+span {
+    font-family: monospace;
+}
+
+.parrafo {
+    background-color: #e29578;
+    color: white;
+    padding: 10px;
+}
+
+input {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 2rem;
+    height: 40px;
+    padding: 5px 5px 10px;
+    border-bottom: 1px solid;  
+}
+
+button {
+    border: none;    
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 15px 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    background-color: #006d77;
+    color: white;
+}
