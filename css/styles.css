@@ -2,10 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-align: center;
+    background-color: #96C2DB;
+    color: #fff;
+    font-size: 16px;
 }
 
 body {
     font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 98vw; /* 100% del ancho de la ventana del navegador */
+    height: 98vh; /* 100% de la altura de la ventana del navegador */
 }
 
 h1{
@@ -13,27 +21,43 @@ h1{
 }
 
 .container {
+    flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin: auto; /* Esto centrará el contenedor */
-    max-width: 100%; /* Puedes ajustar el ancho máximo según tus necesidades */
+    margin: auto;
+    height:100%;
+}
+
+#weather-result{
+    display: grid;
+    grid-column: 1;
+    text-align: center;
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
+    padding: 2%;
 }
 
 #actualForm {
     grid-column: 1;
-    width: 70%;
+    width: 100%;
+}
+
+#actualForm input {
+    margin-bottom: 1%;
 }
 
 input {
     border: none;
-    background: none;
-    outline: none;
-    border-bottom: 1px solid;  
+    outline: none;  
 }
+
+input[type="text"]::placeholder {
+    color: white;
+  }
 
 button {
     border: none;    
