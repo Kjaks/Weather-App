@@ -5,176 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wheater App</title>
-    <link href="css/estilos.css" rel="stylesheet" />
-    <script src="js/funciones.js"></script>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="js/script.js"></script>
   </head>
-
   <body>
-    <div class="contenedor">
-      <h1>Weather App JavaScript</h1>
+        <div class="container">
+            <h1>Consulta del Tiempo</h1>
+            <div id="weather-result"></div>
+            <div id="actualForm">
+                <input type="text" id="city" placeholder="Ingresa el nombre de la ciudad">
+                <button onclick="getWeather()">Consultar Tiempo Actual</button>
+            </div>
+        </div>
 
-      <h2>Proyecto final de la unidad</h2>
-
-      <div class="ejercicio">
-        <h3>Ejercicio</h3>
-        <p>
-          Realice un proyecto de página web que utilice la API de OpenWeather
-          para consultar el tiempo de una ciudad.
-        </p>
-        <p>Tendremos dos opciones para la consulta del tiempo:</p>
-        <ul>
-          <li>Consulta del tiempo actual.</li>
-          <li>Consulta de la predicción del tiempo de 5 días.</li>
-        </ul>
-        <h3>Consulta del tiempo actual</h3>
-        <p>
-          El nombre de la ciudad se escribirá en un campo de texto y al pulsar
-          sobre un botón se hará una petición al servicio web de OpenWeather que
-          devolverá una respuesta en formato JSON.
-        </p>
-        <p>
-          Una vez que reciba la respuesta JSON tendrá que procesarla y mostrar
-          la información meteorógica de la ciudad sobre la que ha realizado la
-          consulta.
-        </p>
-        <p>Tendrá que mostrar la siguiente información:</p>
-        <ul>
-          <li>Nombre de la ciudad</li>
-          <li>País</li>
-          <li>Coordenadas geográficas (latitud y longitud)</li>
-          <li>Temperatura actual</li>
-          <li>Sensación térmica (<code>feels_like</code>)</li>
-          <li>Temperatura mínima</li>
-          <li>Temperatura máxima</li>
-          <li>Presión</li>
-          <li>Humedad</li>
-          <li>Breve descripción del tiempo</li>
-          <li>Icono</li>
-        </ul>
-        <h3>Consulta de la predicción del tiempo de 5 días</h3>
-        <p>
-          El nombre de la ciudad se escribirá en un campo de texto y también se
-          pedirá el número de días de predicción, entre 1 y 5, en un control de
-          formulario cerrado (select, rango, radio...) y al pulsar sobre un
-          botón se hará una petición al servicio web de OpenWeather que
-          devolverá una respuesta en formato JSON.
-        </p>
-        <p>
-          Hay que tener en cuenta que en la llamada a la api se indican el
-          número de intervalos de tiempo a mostrar que serán de cada tres horas,
-          no de días, y por tanto son 8 intervalos por día con un máximo de 40
-          (los cinco días). Lo que quiere decir que debemos multiplicar por 8
-          los días seleccionados para pasar como parámatro en la llamada a la
-          api.
-        </p>
-        <p>
-          Una vez que reciba la respuesta JSON tendrá que procesarla y mostrar
-          la información meteorógica de la ciudad sobre la que ha realizado la
-          consulta.
-        </p>
-        <p>Tendrá que mostrar la siguiente información:</p>
-        <ul>
-          <li>Datos generales</li>
-          <ul>
-            <li>Nombre de la ciudad</li>
-            <li>País</li>
-            <li>Coordenadas geográficas (latitud y longitud)</li>
-          </ul>
-          <li>Datos por cada intervalo (cada tres horas)</li>
-          <ul>
-            <li>Fecha y hora de la predicción</li>
-            <li>Temperatura</li>
-            <li>Sensación térmica (<code>feels_like</code>)</li>
-            <li>Temperatura mínima</li>
-            <li>Temperatura máxima</li>
-            <li>Presión</li>
-            <li>Humedad</li>
-            <li>Breve descripción del tiempo</li>
-            <li>Icono</li>
-            <li>Nubes (%)</li>
-            <li>Velicidad del viento</li>
-            <li>Dirección del viento</li>
-          </ul>
-        </ul>
-        <h3>Pasos para realizar el proyecto</h3>
-        <ol>
-          <li>
-            Debemos acceder a la página de OpenWeather y
-            <a href="https://openweathermap.org/price" target="_blank"
-              >registrarnos en el servicio gratuito</a
-            >
-            para obtener nuestra API key, que para nuestro proyecto es mas que
-            suficiente.
-          </li>
-          <li>
-            Una vez que tengamos nuestra API key ya podemos hacer las
-            <a href="https://openweathermap.org/api" target="_blank"
-              >llamadas a la api</a
-            >
-            para recuperar los datos.
-          </li>
-          <li>
-            Nosotros vamos a utilizar dos servicios:
-            <a href="https://openweathermap.org/current" target="_blank"
-              >Tiempo actual</a
-            >
-            y
-            <a href="https://openweathermap.org/forecast5" target="_blank"
-              >Predicción del tiempo de 5 días.</a
-            >
-          </li>
-          <li>
-            Si bien a estas api's se pueden llamar con el nombre de una
-            localidad, tal y como indica la documentación, este método no es el
-            mas preciso, por lo tanto <b>primero llaremos a <a href="https://openweathermap.org/api/geocoding-api" target="_blank">otra api</a> disponible que
-            nos devuelve las coordenadas geográficas por el nombre de una
-            localidad y luego con esas coordenadas llamaremos a las anteriores
-            api's.</b>
-          </li>
-          <li>Es muy importante también que los datos se muestren en las unidadas del sistema internacional (units = metric) y en idioma español (lang = es).</li>
-          <li>Dentro de esta página, en el archivo <a href="js/funciones.js">js/funciones.js</a> tienes unas indicaciones de como proceder para hacer las peticiones a través de Javascrpit,
-             si bien puedes utilizar algún otro método que consideres mas apropiado.
-          </li>
-        </ol>
-
-        <p>
-         Se valorará positivamente la mejora del código HTML y CSS para
-          mejorar el aspecto visual y la usabilidad del sitio web.
-        </p>
-        <h4>Referencias</h4>
-        <p>
-          🔗
-          <a href="https://openweathermap.org/"
-            >Servicio <b>OpenWeather</b> para obtener los datos del tiempo.</a
-          >
-        </p>
-        <p>
-          🔗
-          <a
-            href="https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch"
-            >Método <b>fetch</b> para hacer peticiones HTTP asíncronas.</a
-          >
-        </p>
-        <p>
-          🔗
-          <a
-            href="https://code.intef.es/prop_didacticas/consulta-el-tiempo-atmosferico-con-python/"
-            >Ejemplo sobre cómo usar el servicio de <b>OpenWeather</b>.</a
-          >
-        </p>
-        <p>
-          🔗
-          <a
-            href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON"
-            >Trabajando con JSON.</a
-          >
-        </p>
-      </div>
-
-      <div class="ejercicio centrado">
-        
-        <p id="parrafo1" class="parrafo"></p>
-      </div>
-    </div>
   </body>
+  <footer>Karolis Jakas Stirbyte 2024©</footer>
 </html>
